@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+   <set name="$m" type="Node"/>
+   <set name="$m1" type="Node"/>
+   <set name="$m2" type="Node"/>
+   <set name="$n1" type="Node"/>
+   <set name="$n2" type="Node"/>
+</node>
+
+<node shape="Circle">
+   <type name="Msg"/>
+</node>
+
+<node shape="Ellipse" color="Green">
+   <type name="Node"/>
+</node>
+
+<node style="Dashed">
+   <set name="this/SendingMsg" type="Msg"/>
+</node>
+
+<node style="Dashed" color="Red">
+   <set name="this/SentMsg" type="Msg"/>
+</node>
+
+<node style="Dashed" color="White">
+   <set name="this/LQueue" type="Node"/>
+</node>
+
+<node style="Dashed" shape="Circle" color="Black">
+   <set name="this/PendingMsg" type="Msg"/>
+</node>
+
+<node style="Dashed" shape="Ellipse" color="Blue">
+   <set name="this/Leader" type="Node"/>
+</node>
+
+<node style="Solid" shape="Ellipse" color="White">
+   <set name="this/Member" type="Node"/>
+</node>
+
+<edge color="Black">
+   <relation name="sndr"> <type name="Msg"/> <type name="Node"/> </relation>
+</edge>
+
+<edge color="Blue" style="Solid">
+   <relation name="nxt"> <type name="Node"/> <type name="Node"/> </relation>
+</edge>
+
+<edge color="Gray">
+   <relation name="$VisualiseQnxt"> <type name="Node"/> <type name="Node"/> </relation>
+</edge>
+
+<edge color="Red" style="Dashed">
+   <relation name="$VisualiseLnxt"> <type name="Node"/> <type name="Node"/> </relation>
+</edge>
+
+<edge color="Yellow" style="Dashed">
+   <relation name="outbox"> <type name="Node"/> <type name="Msg"/> </relation>
+</edge>
+
+<edge style="Dashed" attribute="no">
+   <relation name="rcvrs"> <type name="Msg"/> <type name="Node"/> </relation>
+</edge>
+
+<edge style="Dashed" visible="no">
+   <relation name="lnxt"> <type name="Node"/> <type name="Node"/> <type name="Node"/> </relation>
+   <relation name="qnxt"> <type name="Node"/> <type name="Node"/> <type name="Node"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
